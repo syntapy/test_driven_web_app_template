@@ -24,7 +24,7 @@ services:
     stdin_open: true
     entrypoint: ["npm"]
     depends_on:
-      - gatsby
+      - app
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
