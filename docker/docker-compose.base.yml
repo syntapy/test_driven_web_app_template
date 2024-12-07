@@ -7,7 +7,7 @@ services:
     command: ["run", "develop"]
     volumes:
       - type: bind
-        source: "./src/app/"
+        source: "../src/app/"
         target: "/home/node/site"
     networks:
       - shared
@@ -31,7 +31,7 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority
       - type: bind
-        source: "./src/test/"
+        source: "../src/test/"
         target: "/home/node/site"
     networks:
       - shared
