@@ -1,0 +1,39 @@
+services:
+  app:
+    tty: true
+    stdin_open: true
+    entrypoint: ["npm"]
+    command: ["run", "develop"]
+    volumes:
+      - type: bind
+        source: "./src/app/"
+        target: "/home/node/site"
+    networks:
+      - shared
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+  test_client:
+    tty: true
+    stdin_open: true
+    entrypoint: ["npm"]
+    depends_on:
+      - gatsby
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/root/.Xauthority
+      - type: bind
+        source: "./src/test/"
+        target: "/home/node/site"
+    networks:
+      - shared
+
+networks:
+  shared:
+    driver: bridge

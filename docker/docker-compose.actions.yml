@@ -1,0 +1,5 @@
+services:
+  app:
+    user: root
+  test_client:
+    user: root

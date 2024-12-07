@@ -1,0 +1,39 @@
+name: setup and install
+
+env:
+  NODE_VERSION: 22
+  DISPLAY: ""
+
+permissions: read-all
+
+on:
+  workflow_call:
+    inputs:
+      command:
+        required: true
+        type: string
+
+jobs:
+  call-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout ${{ env.GITHUB_REF }}
+        uses: actions/checkout@v3
+     #- name: tmate session
+     #  uses: mxschmitt/action-tmate@v3
+      - name: pull images
+        run: docker compose pull
+      - name: app - npm install
+        run: docker compose run --rm -u root app ci
+      - name: test - npm install
+        run: docker compose run --rm -u root test ci
+      - name: app dev
+        run: docker compose -f docker-compose.base.yml -f docker-compose.actions.yml up --wait app
+      - name: run test
+        run: docker compose -f docker-compose.base.yml -f docker-compose.actions.yml run --rm test run ${{ inputs.command }}
+      - name: Upload image diff outputs
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e image output directory
+          path: src/test/cypress/snapshots/
+        if: inputs.command == 'e2e' && failure()
