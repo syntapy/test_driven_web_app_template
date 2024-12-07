@@ -9,7 +9,7 @@ fi
 source ./.env
 
 echo "Building Test Client"
-docker build -f docker/Dockerfile.test-client -t $DOCKER_REPO/$APP_IMAGE_NAME ./
+docker build -f docker/Dockerfile.test -t $DOCKER_REPO/$APP_IMAGE_NAME ./
 
 echo
 echo
