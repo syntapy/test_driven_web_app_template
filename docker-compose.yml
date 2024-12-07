@@ -1,5 +1,0 @@
-services:
-  app:
-    image: ${DOCKER_REPO}/${APP_IMAGE_NAME}
-  test_client:
-    image: ${DOCKER_REPO}/${TEST_CLIENT_IMAGE_NAME}

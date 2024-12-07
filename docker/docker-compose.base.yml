@@ -1,5 +1,6 @@
 services:
   app:
+    image: ${DOCKER_REPO}/${APP_IMAGE_NAME}
     tty: true
     stdin_open: true
     entrypoint: ["npm"]
@@ -18,6 +19,7 @@ services:
       timeout: 5s
       retries: 3
   test_client:
+    image: ${DOCKER_REPO}/${TEST_CLIENT_IMAGE_NAME}
     tty: true
     stdin_open: true
     entrypoint: ["npm"]
