@@ -12,9 +12,9 @@ services:
     networks:
       - shared
     ports:
-      - "8000:8000"
+      - "${PORT}:${PORT}"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT}"]
       interval: 20s
       timeout: 5s
       retries: 3
