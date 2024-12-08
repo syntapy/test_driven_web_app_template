@@ -4,7 +4,7 @@ services:
     tty: true
     stdin_open: true
     entrypoint: ["npm"]
-    command: ["run", "develop"]
+    command: ${APP_COMMAND}
     volumes:
       - type: bind
         source: "../src/app/"
