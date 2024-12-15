@@ -1,8 +1,6 @@
 services:
   app:
     image: ${DOCKER_REPO}/${APP_IMAGE_NAME}
-    tty: true
-    stdin_open: true
     entrypoint: ["npm"]
     command: ${APP_COMMAND}
     volumes:
@@ -20,16 +18,10 @@ services:
       retries: 3
   test_client:
     image: ${DOCKER_REPO}/${TEST_CLIENT_IMAGE_NAME}
-    tty: true
-    stdin_open: true
     entrypoint: ["npm"]
     depends_on:
       - app
-    environment:
-      - DISPLAY=${DISPLAY}
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ~/.Xauthority:/root/.Xauthority
       - type: bind
         source: "../src/test/"
         target: "/home/node/site"
