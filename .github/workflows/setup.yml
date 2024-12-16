@@ -28,9 +28,9 @@ jobs:
       - name: test - npm install
         run: docker compose run --rm -u root test ci
       - name: app dev
-        run: docker compose -f docker-compose.base.yml -f docker/docker-compose.x11.yml -f docker-compose.actions.yml up --wait app
+        run: docker compose -f docker/base.yml -f docker/x11.yml -f docker/actions.yml up --wait app
       - name: run test
-        run: docker compose -f docker-compose.base.yml -f docker/docker-compose.x11.yml -f docker-compose.actions.yml run --rm test run ${{ inputs.command }}
+        run: docker compose -f docker/base.yml -f docker/x11.yml -f docker/actions.yml run --rm test run ${{ inputs.command }}
       - name: Upload image diff outputs
         uses: actions/upload-artifact@v3
         with:
