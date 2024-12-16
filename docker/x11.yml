@@ -1,10 +1,5 @@
 services:
-  app:
-    tty: true
-    stdin_open: true
   test_client:
-    tty: true
-    stdin_open: true
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
