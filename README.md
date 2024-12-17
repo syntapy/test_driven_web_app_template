@@ -34,7 +34,7 @@ Make sure you have Docker installed so that you have access to `docker` and `doc
 
 1. Specify image and docker repository names for your app and test client in a `.env` file, as indicated by the `env_example` file
   - The `.env` goes *in the `docker/` folder*, not the root
-1. Your app code goes in `src/app` and test client goes in `src/test`. Maybe best to use submodules for those? Idk...
+1. Your app code goes in `app/` dir, and test client goes in `test/` dir, both in root of repository. Maybe best to use submodules for those? Idk...
 1. Environment for your app is specified in `docker/Dockerfile.app`
 1. Environment for your test client is specified in `docker/Dockerfile.test`
 

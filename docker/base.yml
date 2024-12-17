@@ -7,7 +7,7 @@ services:
     command: ${APP_COMMAND}
     volumes:
       - type: bind
-        source: "../src/app/"
+        source: "../app/"
         target: "/home/node/site"
     networks:
       - shared
@@ -27,7 +27,7 @@ services:
       - app
     volumes:
       - type: bind
-        source: "../src/test/"
+        source: "../test/"
         target: "/home/node/site"
     networks:
       - shared
