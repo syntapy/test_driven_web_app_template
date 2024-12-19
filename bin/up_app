@@ -1,3 +1,5 @@
 #! /bin/sh
 
-docker compose -f docker/base.yml -f docker/x11.yml up app
+source ./bin/lib/set_args
+
+APP_ENTRY=$APP_ENTRY APP_COMMAND=$APP_COMMAND docker compose -f docker/base.yml -f docker/x11.yml up app
