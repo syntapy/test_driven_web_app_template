@@ -4,8 +4,17 @@ source ./docker/.env
 
 CMD_ARG="$@"
 
-while getopts "e:c:" opt; do
+USAGE='Usage:\n'
+USAGE+='  -h          Show help\n'
+USAGE+='  -e ENTRY    Entrypoint for container\n'
+USAGE+='  -c COMMAND  Command to run\n'
+
+while getopts "e:c:h" opt; do
     case ${opt} in
+        h)
+            printf "$USAGE"
+            exit 0
+            ;;
         e)
             ENTRY=${OPTARG}
             ;;
@@ -13,9 +22,7 @@ while getopts "e:c:" opt; do
             CMD=${OPTARG}
             ;;
         ?)
-            echo "Usage:"
-            echo "  -e ENTRY    Entrypoint for container"
-            echo "  -c COMMAND  Command to run"
+            printf "$USAGE"
             exit 1
             ;;
     esac
