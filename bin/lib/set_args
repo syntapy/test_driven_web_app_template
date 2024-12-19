@@ -4,10 +4,12 @@ source ./docker/.env
 
 CMD_ARG="$@"
 
-USAGE='Usage:\n'
+USAGE='Usage:\n\n'
 USAGE+='  -h          Show help\n'
 USAGE+='  -e ENTRY    Entrypoint for container\n'
-USAGE+='  -c COMMAND  Command to run\n'
+USAGE+='  -c COMMAND  Command to run\n\n'
+USAGE+='Example Usage:\n\n'
+USAGE+='  ./bin/up_app -e "bash -c" -c "ls -l"\n\n'
 
 while getopts "e:c:h" opt; do
     case ${opt} in
