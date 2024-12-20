@@ -47,5 +47,7 @@ Because otherwise I had issues with spinning up the test client on the same netw
 Which I can't remember exactly what those were.
 
 1. Run the app with `./bin/up_app` in one terminal
+  - Can set entrypoint and command for container using `-e` and `-c`
+  - Run `./bin/up_app -h` for usage
 1. In separate terminal run test client shell with `./bin/run_test`
   - This allows you to run `npm` commands there directly
