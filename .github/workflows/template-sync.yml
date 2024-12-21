@@ -26,4 +26,5 @@ jobs:
         with:
           source_repo_path: syntapy/test-driven-web-app-template
           upstream_branch: main
+          steps: "commit,push,pr"
           pr_labels: template_sync
