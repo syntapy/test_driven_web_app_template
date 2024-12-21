@@ -36,6 +36,7 @@ while getopts "hse:c:" opt; do
     esac
 done
 
+
 if [ -n "$ENTRY" ]; then
     echo "Overriding entrypoint with arg"
     APP_ENTRY=$ENTRY
