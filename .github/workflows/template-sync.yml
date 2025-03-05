@@ -12,17 +12,18 @@ jobs:
       contents: write
       pull-requests: write
 
-    # To use this repository's private action, you must check out the repository
-    - name: Checkout
-      uses: actions/checkout@v4
-      # https://github.com/actions/checkout#usage
-      # uncomment if you use submodules within the repository
-      # with:
-      #   submodules: true
+    steps:
+      # To use this repository's private action, you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        # https://github.com/actions/checkout#usage
+        # uncomment if you use submodules within the repository
+        # with:
+        #   submodules: true
 
-    - name: actions-template-sync
-      uses: AndreasAugustin/actions-template-sync@v2
-      with:
-        source_repo_path: syntapy/test-driven-web-app-template
-        upstream_branch: main
-        pr_labels: template_sync
+      - name: actions-template-sync
+        uses: AndreasAugustin/actions-template-sync@v2
+        with:
+          source_repo_path: syntapy/test-driven-web-app-template
+          upstream_branch: main
+          pr_labels: template_sync
