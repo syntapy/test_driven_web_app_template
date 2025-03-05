@@ -9,11 +9,13 @@ env:
 
 jobs:
   e2e:
+    if: false
     uses: ./.github/workflows/setup.yml
     secrets: inherit
     with:
       command: e2e
   lighthouse_audit:
+    if: false
     uses: ./.github/workflows/setup.yml
     secrets: inherit
     with:

@@ -34,6 +34,8 @@ This needs Docker installed so that there is access to `docker` and `docker comp
 - Environment for your app is specified in `docker/Dockerfile.app`
 - Environment for your test client is specified in `docker/Dockerfile.test`
 
+You'll want to delete the if statement in `.github/workflows/test.yml` to actually run the app test
+
 ### Running
 
 The shell scripts to run the app are in `bin` folder
@@ -43,3 +45,4 @@ The shell scripts to run the app are in `bin` folder
   - Run `./bin/up_app -h` for usage
 - In separate terminal run test client shell with `./bin/run_test`
   - This allows you to run `npm` commands there directly
+
