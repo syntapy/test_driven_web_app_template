@@ -1,0 +1,8 @@
+#! /bin/sh
+
+if [[ ! -f ./docker/.env  ]]; then
+    echo ".env file doesn't exist. Please add it and try again."
+    exit 1
+fi
+
+source ./.env

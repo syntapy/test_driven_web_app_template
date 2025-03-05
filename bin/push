@@ -1,11 +1,6 @@
 #! /bin/sh
 
-if [[ ! -f ./docker/.env  ]]; then
-    echo ".env file doesn't exist. Please add it and try again."
-    exit 1
-fi
-
-source ./.env
+source ./bin/lib/read_env
 
 docker push $DOCKER_REPO/$APP_IMAGE_NAME
 docker push $DOCKER_REPO/$TEST_CLIENT_IMAGE_NAME
