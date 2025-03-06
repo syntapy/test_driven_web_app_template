@@ -34,7 +34,15 @@ This needs Docker installed so that there is access to `docker` and `docker comp
 - Environment for your app is specified in `docker/Dockerfile.app`
 - Environment for your test client is specified in `docker/Dockerfile.test`
 
+#### Pre-mod
 You'll want to delete the if statement in `.github/workflows/test.yml` to actually run the app test
+
+#### Permissions
+For the workflow to be able to make pull requests, you need to set permissions.
+
+In your repository, go into `Settings` > `Actions` > `General`
+
+There under `Workflow permissions` enable `Read and write permissions` and check the `Allow GitHub Actions to create and approve pull requests`
 
 ### Running
 
