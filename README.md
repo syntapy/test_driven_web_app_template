@@ -42,7 +42,7 @@ For the workflow to be able to make pull requests, you need to set permissions.
 
 In your repository, go into `Settings` > `Actions` > `General`
 
-There under `Workflow permissions` enable `Read and write permissions` and check the `Allow GitHub Actions to create and approve pull requests`
+There under `Workflow permissions` check the `Allow GitHub Actions to create and approve pull requests`
 
 ### Running
 
