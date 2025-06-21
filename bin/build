@@ -3,10 +3,10 @@
 source ./bin/lib/read_env
 
 echo "Building Test Client"
-docker build -f docker/Dockerfile.test -t $DOCKER_REPO/$APP_IMAGE_NAME ./
+docker build -f docker/Dockerfile.test -t $DOCKER_REPO/$TEST_CLIENT_IMAGE_NAME ./
 
 echo
 echo
 echo
 echo "Building App Server"
-docker build -f docker/Dockerfile.app -t $DOCKER_REPO/$TEST_CLIENT_IMAGE_NAME ./
+docker build -f docker/Dockerfile.app -t $DOCKER_REPO/$APP_IMAGE_NAME ./
